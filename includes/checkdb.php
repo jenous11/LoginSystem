@@ -42,10 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         //     echo "<br>";
 
         if ($rows['EMAIL'] == $email) {
-            echo "<br>";
-            echo "Email is  similar, the user is valid!!";
-            echo "<br>";
+            // echo "<br>";
+            // echo "Email is  similar, the user is valid!!";
+            // echo "<br>";
+            if(password_verify($rows['user_password'],PASSWORD_DEFAULT)==$password){
             header("location: ../userpage.php");
+            }
+            else{
+                echo"the password doesnot match! ";
+                echo "<br>";
+                echo "please register again";
+                echo "<a href='../registration.php'><button>back</back></a>";
+            }
         } else {
             echo "<br>";
             echo "Email is different, the user is not registered properly!";
