@@ -5,6 +5,6 @@
         echo "<a href='logout.php'><button>logout</button></a>";
     }
     else{
-        header('Location: frontpage.php ');
+        header('Location: registration.php ');
     }
     ?>

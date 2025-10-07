@@ -3,16 +3,16 @@ session_start();
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username=$_POST['username'];
     $email=$_POST['email'];
-    $password=$_POST['password'];
-
+    $user_password=password_hash($_POST['password'],PASSWORD_DEFAULT);
     // making session for the user
     $_SESSION['username']=$username;
+    // echo $user_password;
 try{
     require "connect.php";
-    $sql="INSERT INTO users (EMAIL,PASSWORD) VALUES (:email,:password);";
+    $sql="INSERT INTO users (EMAIL,user_password) VALUES (:email,:user_password);";
     $stmt=$pdo->prepare($sql);
     $stmt->bindParam(":email",$email);
-    $stmt->bindParam(":password",$password);
+    $stmt->bindParam(":user_password",$user_password);
     $stmt->execute();
     $pdo=null;
     $stmt=null;

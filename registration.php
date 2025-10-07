@@ -9,9 +9,12 @@
 
 </head>
 <body>
-    <!-- <form action="includes/insert.php" method="post">
+
+    <form action="includes/insert.php" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <br>
+            <br>
             username:
             <input type="text"  name="username" placeholder="enter your name">
             <br>
@@ -24,13 +27,15 @@
             <input type="password" name="password"placeholder="enter your password">
             <br>
             <br>
-            <input type="submit">
-        </div>
-    </form> -->
+            <input type="submit" placeholder="signup">
+            or 
+          </div>
+        </form>
+        <a href="login.php"><button>login</button> </a>
 
     <!-- form action  -->
-
-    <form>
+<!-- bootstrap hanna parxa ramro banauna  esma!! -->
+    <!-- <form>
   <div class="mb-3">
     <input type="username" class="form-control" id=" usernameInput ">
   </div>
@@ -44,7 +49,7 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-
+ -->
 
 
 
