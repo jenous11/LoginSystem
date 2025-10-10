@@ -1,13 +1,17 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password=$_POST['password'];
+    $email    = $_POST['email'];
+    $password = $_POST['password'];
     $user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
     // making session for the user
     $_SESSION['email'] = $email;
-    $_SESSION['password']=$password;
+    $_SESSION['password'] = $password;
+    $_SESSION['user_password'] = $user_password;
+    
     // echo $user_password;
     try {
         require "connect.php";

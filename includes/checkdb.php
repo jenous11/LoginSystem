@@ -1,11 +1,12 @@
 <?php
-// write logic to check if the similarity in data
 session_start();
+// write logic to check if the similarity in data
+echo $_SESSION['password'];
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $password2 = $_POST["password2"];
     $_SESSION['email']=$email;
-    $_SESSION['password']=$password;
+    $_SESSION['password2']=$password2;
     // $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
     try {
         require "connect.php";
@@ -32,9 +33,32 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 </head>
 <body>
     <?php
+    echo "<br>";
+    echo"The session email entered in login  is ". $_SESSION['email'];
+    echo "<br>";
+    echo"The session password entered in login is ". $_SESSION['password2'];
+    echo "<br>";
+    echo "The previous password is ";
+    echo $_SESSION['password'];
     // session_start();
     foreach ($results as $rows) {
-        if ($rows['EMAIL'] == $email ) {
+        echo "comparing with: ";
+        echo "<br>";
+        echo $rows['EMAIL'];
+        echo "<br>";
+        echo "comparing to: ";
+        echo $_SESSION['email'];
+        echo "<br>"; 
+
+        echo "comparing with: ";
+        echo "<br>";
+        echo $_SESSION['password'];
+        echo "<br>";
+        echo "comparing to: ";
+        echo $_SESSION['password2'];
+        echo "<br>"; 
+
+        if ($rows['EMAIL'] == $_SESSION['email'] ) {
                 echo "<br>";
             echo "email is a match!";
                 echo "<br>";

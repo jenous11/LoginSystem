@@ -13,7 +13,7 @@
         <input type="email" name="email" placeholder="enter email">
         <br><br>
         password:
-        <input type="password" name="password" placeholder="enter password">
+        <input type="password" name="password2" placeholder="enter password">
         <br><br>
         <input type="submit">
     </form>
