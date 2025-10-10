@@ -10,7 +10,7 @@
 <body>
     <form action="includes/checkdb.php" method="post" class="d-grid justify-content-center mt-5 align-items-end">
         email:
-        <input type="email" name="email" placeholder="enter email">
+        <input type="email" name="email2" placeholder="enter email">
         <br><br>
         password:
         <input type="password" name="password2" placeholder="enter password">
