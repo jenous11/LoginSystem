@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    
-</body>
-</html>
+
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password2 = $_POST["password2"];
     $_SESSION['email2'] = $email2;
     $_SESSION['password2'] = $password2;
-    
 
     try {
         require "connect.php";
@@ -35,40 +22,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "There was an error!...";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body>
     <?php
     echo "<br>";
-
     //main logic
     foreach ($results as $rows) {
+        // echo $_SESSION['email2'];
+        // echo $rows['EMAIL'];
         if ($rows['EMAIL'] == $_SESSION['email2']) {
-            if (password_verify($password2, $rows['user_password']))
+            if (password_verify($password2 , $rows['user_password']))
                 {
                 header("location: ../userpage.php");
                 } 
                 else {
                     echo "<br>";
                     echo "Invlid Password!";
-                    echo "<a href='../registration.php'><button>back</button></a>";
+                    echo "<a href='../login.php'><button>back</button></a>";
                     echo "<br>";
                 }
         } else {
             echo "<br>";
             echo '<p class="text-danger d-flex justify-content-center">Invalid Email or Password!</p>';
-            break;
+            // echo "<p class='text-danger'> Invalid email or password </p>";
+            // break;
             echo "<br>";
         }
     }
     ?>
 </body>
-
 </html>

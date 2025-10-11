@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +11,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+<?php
+echo '<p class="text-success d-flex justify-content-center">Welcome to your personal page!</p>';
+echo '<a href="logout.php "><button class="d-flex "> logout</button></a>';
+?>
     
 </body>
 </html>
-<?php
-session_start();
-echo '<p class="text-success">.Welcome to your personal page!</p>';
-
-echo '<a href="logout.php"><button> logout</button></a>';
 
