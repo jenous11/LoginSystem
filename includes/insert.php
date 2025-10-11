@@ -5,7 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email    = $_POST['email'];
     $password = $_POST['password'];
     $user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    
     // making session for the user
+    $_SESSION['username']=$username;
     $_SESSION['email'] = $email;
     $_SESSION['password'] = $password;
     $_SESSION['user_password'] = $user_password;
